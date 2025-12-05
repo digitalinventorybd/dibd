@@ -1,16 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Header } from "@/components/Home/header";
+import { Footer } from "@/components/Home/footer";
+import { LanguageProvider } from "@/contexts/language-context"
 import "./globals.css"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "digitalinventorybd - Your Strategic Digital Partner",
   description:
     "Leading Digital Marketing agency in Bangladesh. We help businesses thrive in the digital world with innovative strategies and results-oriented approach.",
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -37,9 +35,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased`}>
-        {children}
-        <Analytics />
+      <body className="font-sans antialiased">
+        <LanguageProvider>
+<Header />
+          {children}
+          <Footer />
+</LanguageProvider>
       </body>
     </html>
   )

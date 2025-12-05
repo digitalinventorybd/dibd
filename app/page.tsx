@@ -1,21 +1,17 @@
-import { Header } from "@/components/header"
-import { HeroSection } from "@/components/hero-section"
-import { ClientRatings } from "@/components/client-ratings"
-import { BenefitsSection } from "@/components/benefits-section"
-import { ServicesSection } from "@/components/services-section"
-import { ConsultationForm } from "@/components/consultation-form"
-import { Footer } from "@/components/footer"
+import { BenefitsSection } from "@/components/Home/benefits-section";
+import { ClientRatings } from "@/components/Home/client-ratings";
+import { ConsultationForm } from "@/components/Home/consultation-form";
+import { HeroSection } from "@/components/Home/hero-section";
+import { ServicesSection } from "@/components/Home/services-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Header />
+   <>
       <HeroSection />
       <ClientRatings />
       <BenefitsSection />
       <ServicesSection />
       <ConsultationForm />
-      <Footer />
-    </main>
-  )
+   </>
+  );
 }

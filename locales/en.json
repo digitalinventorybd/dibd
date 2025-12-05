@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "caseStudy": "Case Study",
+    "blog": "Blog",
+    "contact": "Contact Us",
+    "getInTouch": "Get In Touch"
+  },
+  "banner": {
+    "underDevelopment": "This website is under development"
+  },
+  "hero": {
+    "title": "Your Strategic Digital Partner For Ultimate Success.",
+    "subtitle": "Welcome to digitalinventorybd one of the leading Digital Marketing agencies in Bangladesh.",
+    "description": "With our innovative strategies and results-oriented approach, we help businesses thrive in the digital world. Partner with us to achieve measurable results and drive your business growth.",
+    "bookConsultation": "Book Free Consultation",
+    "workingScope": "Working Scope With You"
+  },
+  "clientRatings": {
+    "title": "Explore Client Ratings Showcase"
+  },
+  "benefits": {
+    "title": "Discover the Benefits with Us",
+    "expertise": {
+      "title": "Extensive Expertise",
+      "description": "Benefit from a diverse team of seasoned professionals well-versed in a wide array of digital marketing disciplines, ensuring comprehensive support for all your online needs."
+    },
+    "trackRecord": {
+      "title": "Proven Track Record",
+      "description": "Our portfolio showcases successful projects and satisfied clients, demonstrating our ability to deliver measurable results."
+    },
+    "innovative": {
+      "title": "Innovative Strategies",
+      "description": "Stay ahead of the competition with cutting-edge approaches, leveraging AI, automation, and creative visuals."
+    },
+    "personalized": {
+      "title": "Personalized Solutions",
+      "description": "Every strategy is tailored to your business, audience, and objectives, ensuring maximum impact."
+    },
+    "clientCentric": {
+      "title": "Client-Centric Approach",
+      "description": "We prioritize your goals, maintaining transparent communication and collaboration throughout our partnership."
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Focused on results we seek to raise the level of our customers.",
+    "viewAll": "VIEW ALL",
+    "digitalMarketing": {
+      "title": "Digital Marketing",
+      "description": "Elevate your online presence with our strategic digital marketing solutions, merging proven tactics and the latest trends to navigate your brand toward substantial growth."
+    },
+    "vsmm": {
+      "title": "VSMM",
+      "subtitle": "(Virtual Social Media Marketing)",
+      "description": "Unlock the true potential of social media with VSMM, your comprehensive package to navigate, manage, and optimize your brand's social landscape for optimal engagement."
+    },
+    "seo": {
+      "title": "SEO",
+      "subtitle": "(Search Engine Optimization)",
+      "description": "Ensure your brand is seen and heard online with our expert SEO strategies, crafted to propel you to the top of search results, enhancing visibility and engagement."
+    },
+    "webDesign": {
+      "title": "Web Design and Development",
+      "description": "Crafting sleek websites that enchant and engage, our web design and development team fuses aesthetics with functionality, ensuring your online space is truly yours."
+    },
+    "contentSolutions": {
+      "title": "Content Solutions",
+      "description": "Enticing stories told right - your brand narrations crafted with precision, ensuring every word resonates with your audience, forging deeper, lasting connections."
+    },
+    "videoProduction": {
+      "title": "Video Production (GC/TVC)",
+      "description": "Crafting visual narratives that resonate, our video production team curates compelling visuals, ensuring your brand story is told in the most enchanting way."
+    },
+    "creativeSolutions": {
+      "title": "Creative Solutions",
+      "description": "Imaginative, innovative and impactful, our creative solutions breathe life into your brand, crafting unique, memorable experiences in the crowded digital domain."
+    },
+    "animation": {
+      "title": "Animation",
+      "description": "Bringing stories to life with dynamic motion and animation, ensuring your content is not just noticed, but truly seen and remembered."
+    },
+    "marketingConsultancy": {
+      "title": "Marketing Consultancy",
+      "description": "Guiding your brand with expert insights and strategic paths, our marketing consultancy ensures your journey is not just directed but destined for success."
+    }
+  },
+  "consultation": {
+    "title": "Book a Free Consultancy",
+    "step1": "Personal Info",
+    "step2": "Contact Info",
+    "step3": "Message",
+    "name": "Name",
+    "companyName": "Company Name",
+    "designation": "Designation",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your Message"
+  },
+  "footer": {
+    "quickAccess": "Quick Access",
+    "knowMore": "Know More",
+    "quickContact": "Quick Contact",
+    "registeredMember": "Registered Member",
+    "copyright": "digitalinventorybd © 2016-2025",
+    "concerns": "Our Concerns & Products",
+    "feedback": "Give Feedback",
+    "artistList": "Artist/Model List",
+    "quotation": "Quotation Request",
+    "blogs": "Blogs",
+    "clients": "Our Clients",
+    "adScope": "Ad Scope Tool",
+    "career": "Career",
+    "about": "About Us",
+    "community": "Community",
+    "privacy": "Privacy Policy",
+    "companyProfile": "Company Profile",
+    "terms": "Terms & Condition",
+    "address": "1st Floor, House: 21, Road: 3, Banani DOHS, Dhaka- 1206, Bangladesh"
+  }
+}

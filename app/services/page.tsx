@@ -3,14 +3,11 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Phone, MessageCircle } from "lucide-react"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 
 export default function ServicesPage() {
   return (
     <>
-      <Header />
-      <div className="min-h-screen bg-black text-white pt-20">
+    <div className="min-h-screen bg-background text-foreground pt-20">
         {/* Hero Section */}
         <section className="container mx-auto px-4 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -28,14 +25,14 @@ export default function ServicesPage() {
                 className="text-4xl lg:text-6xl font-bold leading-tight"
               >
                 From Strategy To Screen: DigitalInventoryBD -{" "}
-                <span className="text-red-500">Fueling Your Digital Evolution</span> With Excellence.
+                <span className="text-primary">Fueling Your Digital Evolution</span> With Excellence.
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-gray-400 text-lg leading-relaxed"
+                className="text-muted-foreground text-lg leading-relaxed"
               >
                 Since our establishment in 2016, DigitalInventoryBD has been the cornerstone of success for numerous
                 international and local businesses. As your dedicated Digital Marketing Agency in Bangladesh, we've
@@ -68,7 +65,7 @@ export default function ServicesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="border-t border-zinc-800"
+          className="border-t border-border"
         >
           <div className="container mx-auto px-4 py-16">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -92,7 +89,7 @@ export default function ServicesPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border-2 border-red-500 text-white rounded-lg font-semibold flex items-center gap-2 hover:bg-red-500/10 transition-colors"
+                  className="px-6 py-3 border-2 border-primary text-foreground rounded-lg font-semibold flex items-center gap-2 hover:bg-primary/10 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   Call Now
@@ -101,7 +98,7 @@ export default function ServicesPage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 border-2 border-white text-white rounded-lg font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors"
+                  className="px-6 py-3 border-2 border-foreground text-foreground rounded-lg font-semibold flex items-center gap-2 hover:bg-foreground/10 transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Message Now
@@ -121,9 +118,9 @@ export default function ServicesPage() {
             className="text-center space-y-4 mb-16"
           >
             <h2 className="text-4xl lg:text-5xl font-bold">
-              Our <span className="text-red-500">Services</span>
+              Our <span className="text-primary">Services</span>
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Focused on results we seek to raise the level of our customers.
             </p>
           </motion.div>
@@ -131,10 +128,10 @@ export default function ServicesPage() {
           {/* Service Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
             {/* Decorative corner borders */}
-            <div className="absolute -top-4 -left-4 w-32 h-1 bg-red-500" />
-            <div className="absolute -top-4 -left-4 w-1 h-32 bg-red-500" />
-            <div className="absolute -bottom-4 -right-4 w-32 h-1 bg-red-500" />
-            <div className="absolute -bottom-4 -right-4 w-1 h-32 bg-red-500" />
+            <div className="absolute -top-4 -left-4 w-32 h-1 bg-primary" />
+            <div className="absolute -top-4 -left-4 w-1 h-32 bg-primary" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-1 bg-primary" />
+            <div className="absolute -bottom-4 -right-4 w-1 h-32 bg-primary" />
 
             {[
               {
@@ -169,19 +166,18 @@ export default function ServicesPage() {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-zinc-900/50 border border-zinc-800 rounded-xl p-8 hover:border-red-500/50 transition-all cursor-pointer group"
+                className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-all cursor-pointer group"
               >
-                <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <div className="w-8 h-8 bg-white/20 rounded-full" />
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="w-8 h-8 bg-foreground/20 rounded-full" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-400">{service.desc}</p>
+                <p className="text-muted-foreground">{service.desc}</p>
               </motion.div>
             ))}
           </div>
         </section>
       </div>
-      <Footer />
     </>
   )
 }

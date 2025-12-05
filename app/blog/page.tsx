@@ -1,8 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, ArrowRight, User } from "lucide-react"
@@ -128,16 +126,16 @@ export default function BlogPage() {
   const regularPosts = blogPosts.filter((post) => !post.featured)
 
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
+    <div className="min-h-screen bg-background">
+
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-20 left-10 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-          <div className="absolute top-40 right-20 w-2 h-2 bg-red-500 rounded-full animate-pulse delay-300" />
-          <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-red-500 rounded-full animate-pulse delay-700" />
-          <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-red-500 rounded-full animate-pulse delay-500" />
+          <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-pulse" />
+          <div className="absolute top-40 right-20 w-2 h-2 bg-primary rounded-full animate-pulse delay-300" />
+          <div className="absolute bottom-20 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse delay-700" />
+          <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-primary rounded-full animate-pulse delay-500" />
         </div>
 
         <div className="max-w-7xl mx-auto">
@@ -153,16 +151,16 @@ export default function BlogPage() {
               transition={{ duration: 0.5 }}
               className="inline-block mb-6"
             >
-              <span className="px-6 py-2 border border-red-500 rounded-full text-red-500 text-sm uppercase tracking-wider">
+              <span className="px-6 py-2 border border-primary rounded-full text-primary text-sm uppercase tracking-wider">
                 Our Blog
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
-              Insights & <span className="text-red-500">Expertise</span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+              Insights & <span className="text-primary">Expertise</span>
             </h1>
 
-            <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               Stay updated with the latest trends, tips, and strategies in digital marketing from our team of experts.
             </p>
           </motion.div>
@@ -170,7 +168,7 @@ export default function BlogPage() {
       </section>
 
       {/* Featured Posts */}
-      <section className="py-20 px-6 border-t border-gray-900">
+      <section className="py-20 px-6 border-t border-border">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -179,10 +177,10 @@ export default function BlogPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Featured <span className="text-red-500">Articles</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              Featured <span className="text-primary">Articles</span>
             </h2>
-            <p className="text-gray-400">Our most popular and impactful content</p>
+            <p className="text-muted-foreground">Our most popular and impactful content</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -193,7 +191,7 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-zinc-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-300"
+                className="group bg-card rounded-lg overflow-hidden border border-border hover:border-primary transition-all duration-300"
               >
                 <div className="relative h-56 overflow-hidden">
                   <Image
@@ -205,31 +203,31 @@ export default function BlogPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-60" />
 
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-red-500 text-white text-xs rounded-full font-medium">Featured</span>
+                    <span className="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">Featured</span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
-                    <span className="px-2 py-1 bg-gray-800 rounded text-red-500">{post.category}</span>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                    <span className="px-2 py-1 bg-card-foreground/10 rounded text-primary">{post.category}</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2">
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-3">{post.excerpt}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">{post.excerpt}</p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-800">
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="flex items-center gap-2">
                       <User className="w-4 h-4 text-gray-500" />
-                      <span className="text-xs text-gray-400">{post.author}</span>
+                      <span className="text-xs text-muted-foreground">{post.author}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-gray-500">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Calendar className="w-3 h-3" />
                       {post.date}
                     </div>
@@ -238,7 +236,7 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.id}`}>
                     <motion.button
                       whileHover={{ x: 5 }}
-                      className="mt-4 flex items-center gap-2 text-red-500 text-sm font-semibold group-hover:gap-3 transition-all"
+                      className="mt-4 flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -261,10 +259,10 @@ export default function BlogPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-              Recent <span className="text-red-500">Posts</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+              Recent <span className="text-primary">Posts</span>
             </h2>
-            <p className="text-gray-400">Latest insights from our digital marketing experts</p>
+            <p className="text-muted-foreground">Latest insights from our digital marketing experts</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -275,7 +273,7 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-zinc-900 rounded-lg overflow-hidden border border-gray-800 hover:border-red-500 transition-all duration-300"
+                className="group bg-card rounded-lg overflow-hidden border border-border hover:border-primary transition-all duration-300"
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -288,26 +286,26 @@ export default function BlogPage() {
                 </div>
 
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
-                    <span className="px-2 py-1 bg-gray-800 rounded text-red-500">{post.category}</span>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                    <span className="px-2 py-1 bg-card-foreground/10 rounded text-primary">{post.category}</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-red-500 transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
                     {post.title}
                   </h3>
 
-                  <p className="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">{post.excerpt}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-2">{post.excerpt}</p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-800">
+                  <div className="flex items-center justify-between pt-4 border-t border-border">
                     <div className="flex items-center gap-2">
                       <User className="w-4 h-4 text-gray-500" />
-                      <span className="text-xs text-gray-400">{post.author}</span>
+                      <span className="text-xs text-muted-foreground">{post.author}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-gray-500">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Calendar className="w-3 h-3" />
                       {post.date}
                     </div>
@@ -316,7 +314,7 @@ export default function BlogPage() {
                   <Link href={`/blog/${post.id}`}>
                     <motion.button
                       whileHover={{ x: 5 }}
-                      className="mt-4 flex items-center gap-2 text-red-500 text-sm font-semibold group-hover:gap-3 transition-all"
+                      className="mt-4 flex items-center gap-2 text-primary text-sm font-semibold group-hover:gap-3 transition-all"
                     >
                       Read More
                       <ArrowRight className="w-4 h-4" />
@@ -331,7 +329,7 @@ export default function BlogPage() {
 
       {/* Newsletter CTA */}
       <section className="py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-transparent" />
+        <div className="absolute inset-0 bg-primary/10" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
@@ -340,22 +338,22 @@ export default function BlogPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Stay Updated with <span className="text-red-500">Our Newsletter</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Stay Updated with <span className="text-primary">Our Newsletter</span>
             </h2>
-            <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+            <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Get the latest digital marketing insights, tips, and strategies delivered straight to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 bg-zinc-900 border border-gray-800 rounded-full text-white placeholder:text-gray-500 focus:outline-none focus:border-red-500 transition-colors"
+                className="flex-1 px-6 py-4 bg-card border border-border rounded-full text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-red-500 text-white rounded-full font-semibold hover:bg-red-600 transition-colors"
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:opacity-90 transition-opacity"
               >
                 Subscribe
               </motion.button>
@@ -364,7 +362,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   )
 }

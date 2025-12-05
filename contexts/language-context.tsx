@@ -1,0 +1,242 @@
+"use client"
+
+import { createContext, useContext, useEffect, type ReactNode } from "react"
+import { useTranslation } from "react-i18next"
+import "@/lib/i18n"
+
+type Language = "en" | "bn"
+
+interface LanguageContextType {
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const { i18n, t } = useTranslation()
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") as Language
+    if (savedLanguage) {
+      i18n.changeLanguage(savedLanguage)
+    }
+  }, [i18n])
+
+  const handleSetLanguage = (lang: Language) => {
+    i18n.changeLanguage(lang)
+    localStorage.setItem("language", lang)
+  }
+
+  return (
+    <LanguageContext.Provider
+      value={{
+        language: i18n.language as Language,
+        setLanguage: handleSetLanguage,
+        t,
+      }}
+    >
+      {children}
+    </LanguageContext.Provider>
+  )
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext)
+  if (context === undefined) {
+    throw new Error("useLanguage must be used within a LanguageProvider")
+  }
+  return context
+}
+
+// const translations = {
+//   en: {
+//     nav: {
+//       home: "Home",
+//       services: "Services",
+//       portfolio: "Portfolio",
+//       caseStudy: "Case Study",
+//       blog: "Blog",
+//       getInTouch: "Get In Touch",
+//     },
+//     banner: {
+//       underDevelopment: "This website is under development",
+//     },
+//     hero: {
+//       title: "Your Strategic Digital Partner For Ultimate Success.",
+//       subtitle: "Welcome to digitalinventorybd one of the leading Digital Marketing agencies in Bangladesh.",
+//       description:
+//         "With our innovative strategies and results-oriented approach, we help businesses thrive in the digital world. Partner with us to achieve measurable results and drive your business growth.",
+//       bookConsultation: "Book Free Consultation",
+//       workingScope: "Working Scope With You",
+//     },
+//     clientRatings: {
+//       title: "Explore Client Ratings Showcase",
+//     },
+//     benefits: {
+//       title: "Discover the Benefits with Us",
+//       expertise: {
+//         title: "Extensive Expertise",
+//         description:
+//           "Benefit from a diverse team of seasoned professionals well-versed in a wide array of digital marketing disciplines, ensuring comprehensive support for all your online needs.",
+//       },
+//       trackRecord: {
+//         title: "Proven Track Record",
+//         description:
+//           "Our portfolio showcases successful projects and satisfied clients, demonstrating our ability to deliver measurable results.",
+//       },
+//       innovative: {
+//         title: "Innovative Strategies",
+//         description:
+//           "Stay ahead of the competition with cutting-edge approaches, leveraging AI, automation, and creative visuals.",
+//       },
+//       personalized: {
+//         title: "Personalized Solutions",
+//         description: "Every strategy is tailored to your business, audience, and objectives, ensuring maximum impact.",
+//       },
+//       clientCentric: {
+//         title: "Client-Centric Approach",
+//         description:
+//           "We prioritize your goals, maintaining transparent communication and collaboration throughout our partnership.",
+//       },
+//     },
+//     services: {
+//       title: "Our Services",
+//       subtitle: "Focused on results we seek to raise the level of our customers.",
+//       viewAll: "VIEW ALL",
+//       digitalMarketing: {
+//         title: "Digital Marketing",
+//         description:
+//           "Elevate your online presence with our strategic digital marketing solutions, merging proven tactics and the latest trends to navigate your brand toward substantial growth.",
+//       },
+//       vsmm: {
+//         title: "VSMM",
+//         subtitle: "(Virtual Social Media Marketing)",
+//         description:
+//           "Unlock the true potential of social media with VSMM, your comprehensive package to navigate, manage, and optimize your brand's social landscape for optimal engagement.",
+//       },
+//       seo: {
+//         title: "SEO",
+//         subtitle: "(Search Engine Optimization)",
+//         description:
+//           "Ensure your brand is seen and heard online with our expert SEO strategies, crafted to propel you to the top of search results, enhancing visibility and engagement.",
+//       },
+//     },
+//     consultation: {
+//       title: "Book a Free Consultancy",
+//       step1: "Personal Info",
+//       step2: "Contact Info",
+//       step3: "Message",
+//       name: "Name",
+//       companyName: "Company Name",
+//       designation: "Designation",
+//       next: "Next",
+//       previous: "Previous",
+//       submit: "Submit",
+//       email: "Email",
+//       phone: "Phone",
+//       message: "Your Message",
+//     },
+//     footer: {
+//       quickAccess: "Quick Access",
+//       knowMore: "Know More",
+//       quickContact: "Quick Contact",
+//       registeredMember: "Registered Member",
+//       copyright: "digitalinventorybd © 2016-2025",
+//     },
+//   },
+//   bn: {
+//     nav: {
+//       home: "হোম",
+//       services: "সেবাসমূহ",
+//       portfolio: "পোর্টফোলিও",
+//       caseStudy: "কেস স্টাডি",
+//       blog: "ব্লগ",
+//       getInTouch: "যোগাযোগ করুন",
+//     },
+//     banner: {
+//       underDevelopment: "এই ওয়েবসাইটটি নির্মাণাধীন রয়েছে",
+//     },
+//     hero: {
+//       title: "আপনার কৌশলগত ডিজিটাল পার্টনার চূড়ান্ত সাফল্যের জন্য।",
+//       subtitle: "ডিজিটাল ইনভেন্টরি বিডিতে স্বাগতম বাংলাদেশের শীর্ষস্থানীয় ডিজিটাল মার্কেটিং এজেন্সি।",
+//       description:
+//         "আমাদের উদ্ভাবনী কৌশল এবং ফলাফল-ভিত্তিক পদ্ধতির মাধ্যমে, আমরা ডিজিটাল বিশ্বে ব্যবসায়গুলিকে সমৃদ্ধ হতে সাহায্য করি। পরিমাপযোগ্য ফলাফল অর্জন এবং আপনার ব্যবসার বৃদ্ধি চালনার জন্য আমাদের সাথে অংশীদার হন।",
+//       bookConsultation: "বিনামূল্যে পরামর্শ বুক করুন",
+//       workingScope: "আপনার সাথে কাজের পরিধি",
+//     },
+//     clientRatings: {
+//       title: "ক্লায়েন্ট রেটিং প্রদর্শনী অন্বেষণ করুন",
+//     },
+//     benefits: {
+//       title: "আমাদের সাথে সুবিধাগুলি আবিষ্কার করুন",
+//       expertise: {
+//         title: "ব্যাপক দক্ষতা",
+//         description:
+//           "ডিজিটাল মার্কেটিং শাখার বিস্তৃত পরিসরে সুপারিশকৃত পেশাদারদের একটি বৈচিত্র্যময় দল থেকে উপকৃত হন, আপনার সমস্ত অনলাইন প্রয়োজনের জন্য ব্যাপক সমর্থন নিশ্চিত করে।",
+//       },
+//       trackRecord: {
+//         title: "প্রমাণিত ট্র্যাক রেকর্ড",
+//         description:
+//           "আমাদের পোর্টফোলিও সফল প্রকল্প এবং সন্তুষ্ট ক্লায়েন্টদের প্রদর্শন করে, পরিমাপযোগ্য ফলাফল প্রদানের আমাদের ক্ষমতা প্রদর্শন করে।",
+//       },
+//       innovative: {
+//         title: "উদ্ভাবনী কৌশল",
+//         description: "এআই, অটোমেশন, এবং সৃজনশীল ভিজ্যুয়ালগুলি ব্যবহার করে অত্যাধুনিক পদ্ধতির সাথে প্রতিযোগিতায় এগিয়ে থাকুন।",
+//       },
+//       personalized: {
+//         title: "ব্যক্তিগতকৃত সমাধান",
+//         description: "প্রতিটি কৌশল আপনার ব্যবসা, দর্শক এবং উদ্দেশ্যগুলির জন্য তৈরি করা হয়, সর্বাধিক প্রভাব নিশ্চিত করে।",
+//       },
+//       clientCentric: {
+//         title: "ক্লায়েন্ট-কেন্দ্রিক পদ্ধতি",
+//         description: "আমরা আপনার লক্ষ্যগুলিকে অগ্রাধিকার দিই, আমাদের অংশীদারিত্ব জুড়ে স্বচ্ছ যোগাযোগ এবং সহযোগিতা বজায় রাখি।",
+//       },
+//     },
+//     services: {
+//       title: "আমাদের সেবাসমূহ",
+//       subtitle: "ফলাফলের উপর দৃষ্টি নিবদ্ধ করে আমরা আমাদের গ্রাহকদের স্তর উন্নত করতে চাই।",
+//       viewAll: "সব দেখুন",
+//       digitalMarketing: {
+//         title: "ডিজিটাল মার্কেটিং",
+//         description:
+//           "আমাদের কৌশলগত ডিজিটাল মার্কেটিং সমাধানের সাথে আপনার অনলাইন উপস্থিতি উন্নত করুন, প্রমাণিত কৌশল এবং সর্বশেষ প্রবণতাগুলি একত্রিত করে আপনার ব্র্যান্ডকে উল্লেখযোগ্য বৃদ্ধির দিকে নিয়ে যান।",
+//       },
+//       vsmm: {
+//         title: "ভিএসএমএম",
+//         subtitle: "(ভার্চুয়াল সোশ্যাল মিডিয়া মার্কেটিং)",
+//         description:
+//           "ভিএসএমএম-এর সাথে সোশ্যাল মিডিয়ার প্রকৃত সম্ভাবনা আনলক করুন, আপনার ব্র্যান্ডের সামাজিক ল্যান্ডস্কেপ নেভিগেট, পরিচালনা এবং অনুকূলিত করার জন্য আপনার ব্যাপক প্যাকেজ।",
+//       },
+//       seo: {
+//         title: "এসইও",
+//         subtitle: "(সার্চ ইঞ্জিন অপটিমাইজেশন)",
+//         description:
+//           "আমাদের বিশেষজ্ঞ এসইও কৌশলগুলির সাথে অনলাইনে আপনার ব্র্যান্ড দেখা এবং শোনা নিশ্চিত করুন, আপনাকে অনুসন্ধান ফলাফলের শীর্ষে নিয়ে যেতে তৈরি করা হয়েছে।",
+//       },
+//     },
+//     consultation: {
+//       title: "একটি বিনামূল্যে পরামর্শ বুক করুন",
+//       step1: "ব্যক্তিগত তথ্য",
+//       step2: "যোগাযোগের তথ্য",
+//       step3: "বার্তা",
+//       name: "নাম",
+//       companyName: "কোম্পানির নাম",
+//       designation: "পদবী",
+//       next: "পরবর্তী",
+//       previous: "পূর্ববর্তী",
+//       submit: "জমা দিন",
+//       email: "ইমেইল",
+//       phone: "ফোন",
+//       message: "আপনার বার্তা",
+//     },
+//     footer: {
+//       quickAccess: "দ্রুত প্রবেশাধিকার",
+//       knowMore: "আরও জানুন",
+//       quickContact: "দ্রুত যোগাযোগ",
+//       registeredMember: "নিবন্ধিত সদস্য",
+//       copyright: "ডিজিটাল ইনভেন্টরি বিডি © ২০১৬-২০২৫",
+//     },
+//   },
+// }
